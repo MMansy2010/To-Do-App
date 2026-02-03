@@ -149,5 +149,4 @@ function checkNotifications(){
   });
 }
 
-// تحقق كل دقيقة
 setInterval(checkNotifications, 60000);
