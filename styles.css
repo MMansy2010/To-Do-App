@@ -1,4 +1,3 @@
-/* ===== THEME COLORS ===== */
 :root {
   --bg: #f8f9fa;
   --card: #ffffff;
@@ -13,7 +12,6 @@ html[data-theme="dark"] {
   --accent: #facc15;
 }
 
-/* ===== GLOBAL ===== */
 body {
   background: var(--bg);
   color: var(--text);
@@ -29,7 +27,7 @@ body {
   animation: fadeIn 0.6s ease;
 }
 
-/* ===== FORM ===== */
+/* Form */
 .task-form {
   background: var(--card);
   border-radius: 12px;
@@ -37,175 +35,48 @@ body {
   margin-top: 10px;
 }
 
-/* ===== TASKS ===== */
+/* Tasks */
 .task {
   background: var(--bg);
   border-radius: 10px;
-  padding: 10px;
-  margin-bottom: 10px;
-  animation: slideUp 0.4s ease;
-}
-
-.task p {
-  margin: 0;
-  font-size: 0.9rem;
-}
-
-/* ===== HIDDEN ===== */
-.hidden {
-  display: none;
-}
-
-/* ===== ANIMATIONS ===== */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-scale {
-  animation: fadeIn 0.3s ease;
-}
-
-
-/* ===== TASKS CONTAINER STYLING ===== */
-.task {
-  background: var(--card);
-  border-radius: 10px;
   padding: 15px;
   margin-bottom: 12px;
+  border: 2px solid var(--accent);
   animation: slideUp 0.4s ease;
-  border: 2px solid var(--accent); /* border around each task */
-  transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+  transition: background 0.3s, border 0.3s, color 0.3s;
 }
 
-/* Paragraph styling */
 .task p {
   margin: 0 0 5px 0;
   font-size: 0.9rem;
 }
 
-/* Buttons inside task */
 .task .btn {
   width: 80px;
   margin-right: 5px;
   font-size: 0.85rem;
 }
 
-/* ===== EDIT BUTTON ===== */
-.task .btn-edit {
-  background-color: #0d6efd; /* bootstrap primary */
-  color: #fff;
-}
+/* Edit/Delete */
+.task .btn-edit { background-color: #0d6efd; color: #fff; }
+html[data-theme="dark"] .task .btn-edit { background-color: #3b82f6; }
 
-html[data-theme="dark"] .task .btn-edit {
-  background-color: #3b82f6; /* brighter blue for dark */
-  color: #fff;
-}
+.task .btn-delete { background-color: #dc3545; color: #fff; }
+html[data-theme="dark"] .task .btn-delete { background-color: #ef4444; }
 
-/* ===== DELETE BUTTON ===== */
-.task .btn-delete {
-  background-color: #dc3545; /* bootstrap danger */
-  color: #fff;
-}
+.task .btn-edit:hover { background-color: #2563eb; }
+.task .btn-delete:hover { background-color: #b91c1c; }
 
-html[data-theme="dark"] .task .btn-delete {
-  background-color: #ef4444; /* brighter red for dark */
-  color: #fff;
-}
+.hidden { display: none; }
 
-/* Hover effects */
-.task .btn-edit:hover {
-  background-color: #2563eb;
-}
+/* Animations */
+@keyframes fadeIn { from {opacity:0; transform:scale(0.95);} to{opacity:1; transform:scale(1);} }
+@keyframes slideUp { from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+.animate-scale { animation: fadeIn 0.3s ease; }
 
-.task .btn-delete:hover {
-  background-color: #b91c1c;
-}
-/* ===== TASKS CONTAINER STYLING ===== */
-.task {
-  background: var(--card);
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 12px;
-  animation: slideUp 0.4s ease;
-  border: 2px solid var(--accent); /* border around each task */
-  transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
-}
-
-/* Paragraph styling */
-.task p {
-  margin: 0 0 5px 0;
-  font-size: 0.9rem;
-}
-
-/* Buttons inside task */
-.task .btn {
-  width: 80px;
-  margin-right: 5px;
-  font-size: 0.85rem;
-}
-
-/* ===== EDIT BUTTON ===== */
-.task .btn-edit {
-  background-color: #0d6efd; /* bootstrap primary */
-  color: #fff;
-}
-
-html[data-theme="dark"] .task .btn-edit {
-  background-color: #3b82f6; /* brighter blue for dark */
-  color: #fff;
-}
-
-/* ===== DELETE BUTTON ===== */
-.task .btn-delete {
-  background-color: #dc3545; /* bootstrap danger */
-  color: #fff;
-}
-
-html[data-theme="dark"] .task .btn-delete {
-  background-color: #ef4444; /* brighter red for dark */
-  color: #fff;
-}
-
-/* Hover effects */
-.task .btn-edit:hover {
-  background-color: #2563eb;
-}
-
-.task .btn-delete:hover {
-  background-color: #b91c1c;
-}
-
-html[data-theme="light"] .task {
-  border-color: #dc3545; /* Red border for light theme */
-}
-
-html[data-theme="dark"] .task {
-  border-color: #9ca3af; /* Gray border for dark theme */
-}
-
-
-/* ===== RESPONSIVE ===== */
-@media (max-width: 576px) {
-  .todo-app {
-    margin: 10px;
-    padding: 15px;
-  }
+/* Responsive */
+@media (max-width:576px){
+  .todo-app { margin:10px; padding:15px; }
+  .task .btn { width:70px; font-size:0.8rem; }
+  #hour-input, #minute-input { width: 50%; }
 }
